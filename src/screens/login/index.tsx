@@ -7,6 +7,8 @@ import CustomToast from '../../components/CustomToast';
 import Toast from 'react-native-toast-message';
 import { NavigationContext } from '@react-navigation/native';
 import styles from './styles';
+import { ScreenNames } from '../../navigation/screenNames';
+import { Icons, Images } from '../../assets';
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
@@ -37,7 +39,7 @@ const LoginScreen = () => {
     validateInputs();
   };
   const handleNavigate = () => {
-    navigation.navigate("drawerStack")
+    navigation.navigate(ScreenNames.Drawer)
   }
 
   const handlePasswordChange = (text) => {
@@ -93,7 +95,7 @@ const LoginScreen = () => {
             value={email}
             onChangeText={handleEmailChange}
             placeholder="Email Address"
-            iconSource={require('../../assets/images/email.png')}
+            iconSource={Icons.emailIcon}
             error={errors.email}
           />
 
@@ -102,15 +104,15 @@ const LoginScreen = () => {
               value={password}
               onChangeText={handlePasswordChange}
               placeholder="Password"
-              iconSource={require('../../assets/images/lock.png')}
+              iconSource={Icons.lockIcon}
               error={errors.password}
               secureTextEntry={!isPasswordVisible}
-              rightIconSource={require('../../assets/images/eye.png')}
+              rightIconSource={Icons.eyeIcon}
               onRightIconPress={() => setPasswordVisible(prev => !prev)}
             />
           </View>
 
-          <TouchableOpacity onPress={() => navigation.navigate('forgetPassword')}>
+          <TouchableOpacity onPress={() => navigation.navigate(ScreenNames.ForgotPassword)}>
             <Text style={styles.forgotPassword}>Forgot Password</Text>
           </TouchableOpacity>
 
@@ -128,7 +130,7 @@ const LoginScreen = () => {
         visible={isModalVisible}
         title="Account Locked"
         description="Your account has been locked due to too many failed attempts. Please try again after some time."
-        imageSource={require('../../assets/images/lockIcon.png')}
+        imageSource={Icons.lockIcon}
         buttonText="Okay"
         closeModal={() => setModalVisible(false)}
         onButtonPress={() => handleNavigate()}

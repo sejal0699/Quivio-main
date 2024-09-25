@@ -15,6 +15,7 @@ interface CustomModalProps {
 const CustomModal = (props: CustomModalProps) => {
     const { visible, title, description, imageSource, buttonText, closeModal, onButtonPress, } = props;
 
+
     const handleButtonPress = () => {
         if (onButtonPress) {
             onButtonPress();
@@ -30,7 +31,6 @@ const CustomModal = (props: CustomModalProps) => {
             visible={visible}
             animationType="slide"
             onRequestClose={closeModal}
-
         >
             <View style={styles.modalOverlay}>
                 <View style={styles.modalContent}>
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     okButton: {
-        backgroundColor: '#007BFF',
+        backgroundColor: colors.blue,
         paddingHorizontal: 20,
         paddingVertical: 10,
         borderRadius: 5,

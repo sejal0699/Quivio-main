@@ -1,17 +1,18 @@
 import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, Image, ScrollView } from 'react-native';
+import { Icons, Images } from '../assets';
 
-const BackgroundImage = (props:any) => {
+const BackgroundImage = (props: any) => {
 
   return (
     <ImageBackground
-      source={require('../assets/images/background.png')}
+      source={Images.background}
       style={styles.backgroundImage}
     >
       <View style={styles.overlay}>
         <View style={styles.cont}>
           <Image
-            source={require('../assets/images/Whiteicon.png')}
+            source={Images.logoImage}
             style={styles.image}
           />
           <View style={styles.texts}>
@@ -30,21 +31,21 @@ const BackgroundImage = (props:any) => {
           <View style={styles.box}>
             <View style={styles.item}>
               <Image
-                source={require('../assets/images/chart.png')}
+                source={Icons.chartIcon}
                 style={styles.image}
               />
               <Text style={styles.text}>Aesthetical{'\n'}Graphics</Text>
             </View>
             <View style={styles.item}>
               <Image
-                source={require('../assets/images/clock.png')}
+                source={Icons.lockIcon}
                 style={styles.image}
               />
               <Text style={styles.text}>Real time{'\n'}statistics</Text>
             </View>
             <View style={styles.item}>
               <Image
-                source={require('../assets/images/flask.png')}
+                source={Icons.flaskIcon}
                 style={styles.image}
               />
               <Text style={styles.text}>Track equipment{'\n'}usage</Text>

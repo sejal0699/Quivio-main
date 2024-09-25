@@ -1,24 +1,25 @@
 import React from 'react';
 import { View, Text, Modal, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { Icons, Images } from '../assets';
 
-interface SecureAccountModalProps{
-  visible:boolean,
-  closeModal:()=>void
+interface SecureAccountModalProps {
+  visible: boolean,
+  closeModal: () => void
 }
-const SecureAccountModal = ({ visible, closeModal }:SecureAccountModalProps) => {
+const SecureAccountModal = ({ visible, closeModal }: SecureAccountModalProps) => {
 
   return (
     <Modal
       animationType="slide"
       transparent={true}
-      visible={visible} 
+      visible={visible}
       onRequestClose={closeModal}
     >
       <View style={styles.modalBackground}>
         <View style={styles.modalContainer}>
           <Image
-            source={require('../assets/images/popup.png')}
-           
+            source={Images.popupImage}
+
           />
           <Text style={styles.title}>Secure your Account?</Text>
           <Text style={styles.description}>
@@ -27,21 +28,21 @@ const SecureAccountModal = ({ visible, closeModal }:SecureAccountModalProps) => 
           <View style={styles.stepsContainer}>
             <View style={styles.step}>
               <Image
-                source={require('../assets/images/phone.png')}
+                source={Icons.phoneIcon}
                 style={styles.stepIcon}
               />
               <Text style={styles.stepText}>Link your account with your phone number</Text>
             </View>
             <View style={styles.step}>
               <Image
-                source={require('../assets/images/passcode.png')}
+                source={Icons.passcodeIcon}
                 style={styles.stepIcon}
               />
               <Text style={styles.stepText}>Enter the one-time passcode</Text>
             </View>
             <View style={styles.step}>
               <Image
-                source={require('../assets/images/secure.png')}
+                source={Icons.secureIcon}
                 style={styles.stepIcon}
               />
               <Text style={styles.stepText}>Secure your account</Text>
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
   },
   stepText: {
     color: '#000',
-    marginBottom:10
+    marginBottom: 10
   },
   button: {
     backgroundColor: '#007AFF',

@@ -1,12 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Animated, Image } from 'react-native';
 import styles from './styles';
+import { ScreenNames } from '../../navigation/screenNames';
+import { Images } from '../../assets';
 
-interface Props{
-  navigation:any,
-  isFirstLaunch:boolean
+interface Props {
+  navigation: any,
+  isFirstLaunch: boolean
 }
-const SplashScreen = ({ navigation, isFirstLaunch }:Props) => {
+const SplashScreen = ({ navigation, isFirstLaunch }: Props) => {
   const logoScale = useRef(new Animated.Value(0)).current;
   const logoOpacity = useRef(new Animated.Value(0)).current;
 
@@ -27,24 +29,24 @@ const SplashScreen = ({ navigation, isFirstLaunch }:Props) => {
 
     setTimeout(() => {
       console.log(isFirstLaunch);
-      
+
       if (isFirstLaunch) {
-        navigation.replace('tutorial'); 
+        navigation.replace(ScreenNames.Tutorial);
       } else {
         // navigation.replace('drawerStack'); 
-        navigation.replace('login'); 
+        navigation.replace(ScreenNames.Login);
       }
-    }, 2000); 
+    }, 2000);
   }, [isFirstLaunch, navigation]);
 
   return (
     <View style={styles.container}>
-     
-        <Image
-          source={require('../../assets/images/Landing.png')}
-          style={styles.logo}
-        />
-   
+
+      <Image
+        source={Images.landingImage}
+        style={styles.logo}
+      />
+
     </View>
   );
 };

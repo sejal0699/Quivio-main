@@ -5,6 +5,8 @@ import CustomTextInput from '../../components/CustomTextInput';
 import CustomToast from '../../components/CustomToast';
 import styles from './styles';
 import CustomModal from '../../components/CustomModal';
+import { ScreenNames } from '../../navigation/screenNames';
+import { Icons, Images } from '../../assets';
 
 interface NavigationProps {
 
@@ -53,7 +55,7 @@ class ForgotPasswordScreen extends Component<States, Props> {
 
   closeModal = () => {
     this.setState({ isModalVisible: false });
-    this.props.navigation.navigate('reset');
+    this.props.navigation.navigate(ScreenNames.Reset);
   };
 
   handleHelp = () => {
@@ -97,12 +99,12 @@ class ForgotPasswordScreen extends Component<States, Props> {
               <TouchableOpacity style={styles.backButton} onPress={() => this.props.navigation.goBack()}
                 hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
               >
-                <Image source={require('../../assets/images/back.png')} style={styles.backIcon} />
+                <Image source={Icons.backArrow} style={styles.backIcon} />
               </TouchableOpacity>
             </View>
 
             <View>
-              <Image source={require('../../assets/images/backdrop.png')} style={styles.backdropIcon} />
+              <Image source={Images.backDrop} style={styles.backdropIcon} />
             </View>
 
           </View>
@@ -118,7 +120,7 @@ class ForgotPasswordScreen extends Component<States, Props> {
                   value={email}
                   onChangeText={this.handleEmailChange}
                   placeholder="Email Address"
-                  iconSource={require('../../assets/images/email.png')}
+                  iconSource={Icons.emailIcon}
                   error={error}
                 />
               </View>
@@ -139,7 +141,7 @@ class ForgotPasswordScreen extends Component<States, Props> {
             visible={isModalVisible}
             title="Link Sent"
             description="The link to reset your password has been sent on your email address."
-            imageSource={require('../../assets/images/link.png')}
+            imageSource={Icons.linkIcon}
             buttonText="Back to Login"
             closeModal={this.closeModal}
 

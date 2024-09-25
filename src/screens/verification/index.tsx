@@ -3,10 +3,10 @@ import { View, Text, TextInput, TouchableOpacity, Image, KeyboardAvoidingView, P
 import Toast from 'react-native-toast-message';
 import CustomToast from '../../components/CustomToast';
 import styles from './styles';
-import FailedModal from '../../components/FailedModal';
-import AccountVerifiedModal from '../../components/AccountVerifiedModal';
-import LogoutModal from '../../components/LogoutModal';
+
 import CustomModal from '../../components/CustomModal';
+import { ScreenNames } from '../../navigation/screenNames';
+import { Icons, Images } from '../../assets';
 
 interface NavigationProps {
   navigation: any
@@ -23,7 +23,7 @@ const VerificationScreen = ({ navigation }: NavigationProps) => {
   const [showLogout, setShowLogout] = useState(false);
   const [resend, setIsResend] = useState(false);
   const [timer, setTimer] = useState(60);
-  const [isModalVisible, setModalVisible] = useState(false);
+
   useEffect(() => {
     // Enable the button when OTP is filled
     const allFilled = code.every((digit) => digit.length > 0);
@@ -98,7 +98,7 @@ const VerificationScreen = ({ navigation }: NavigationProps) => {
   const closeModal = () => {
     setShowModal(false);
     setShowLogout(false);
-    navigation.navigate('login');
+    navigation.navigate(ScreenNames.Login);
   };
 
   const closeSuccessModal = () => {
@@ -111,7 +111,7 @@ const VerificationScreen = ({ navigation }: NavigationProps) => {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={styles.container}>
       <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-        <Image source={require('../../assets/images/back.png')} style={styles.backIcon} />
+        <Image source={Icons.backArrow} style={styles.backIcon} />
       </TouchableOpacity>
 
       <View style={styles.contentContainer}>
@@ -137,7 +137,7 @@ const VerificationScreen = ({ navigation }: NavigationProps) => {
         {errorMessage ? (
           <View style={styles.errorContainer}>
             <Image
-              source={require('../../assets/images/alert.png')}
+              source={Icons.alert}
               style={styles.errorImage}
             />
             <Text style={styles.errorMessage}>{errorMessage}</Text>
@@ -170,7 +170,7 @@ const VerificationScreen = ({ navigation }: NavigationProps) => {
         visible={showModal}
         title="Too many failed attempts"
         description="Your account has been locked, please try again in one hour."
-        imageSource={require('../../assets/images/failed.png')}
+        imageSource={Icons.failed}
         buttonText="Back to Login"
         closeModal={closeModal}
 
@@ -179,7 +179,7 @@ const VerificationScreen = ({ navigation }: NavigationProps) => {
         visible={showSuccessModal}
         title="Account Verified!"
         description="Your account has been verified successfully."
-        imageSource={require('../../assets/images/done.png')}
+        imageSource={Icons.doneIcon}
         buttonText="Back to Login"
         closeModal={closeSuccessModal}
 
@@ -190,7 +190,7 @@ const VerificationScreen = ({ navigation }: NavigationProps) => {
         visible={showLogout}
         title="Exit 2FA?"
         description="Are you sure you want to exit 2FA, You will need to redo it again."
-        imageSource={require('../../assets/images/failed.png')}
+        imageSource={Icons.failed}
         buttonText="Yes, Exit"
         closeModal={closeModal}
 

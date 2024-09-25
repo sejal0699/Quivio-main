@@ -13,19 +13,21 @@ import styles from './styles';
 import CountryPicker from 'react-native-country-picker-modal';
 import Toast from 'react-native-toast-message';
 import CustomToast from '../../components/CustomToast';
+import { ScreenNames } from '../../navigation/screenNames';
+import { Icons, Images } from '../../assets';
 
-interface NavigationProps{
-  navigation:any
+interface NavigationProps {
+  navigation: any
 }
-const FactorAuth = ({ navigation }:NavigationProps) => {
+const FactorAuth = ({ navigation }: NavigationProps) => {
   const defaultPhoneNumber = '1234567890';
   const [phone, setPhone] = useState('');
-  const [countryCode, setCountryCode] = useState('US');  
-  const [callingCode, setCallingCode] = useState('1');   
+  const [countryCode, setCountryCode] = useState('US');
+  const [callingCode, setCallingCode] = useState('1');
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [isPickerVisible, setPickerVisible] = useState(false);
 
-  const handlePhoneChange = (value:string) => {
+  const handlePhoneChange = (value: string) => {
     setPhone(value);
     setButtonDisabled(value.length < 10);
   };
@@ -37,7 +39,7 @@ const FactorAuth = ({ navigation }:NavigationProps) => {
         text1: 'User exists. Try a different number.',
       });
     } else {
-      navigation.navigate('verify');
+      navigation.navigate(ScreenNames.Verify);
     }
   };
 
@@ -49,7 +51,7 @@ const FactorAuth = ({ navigation }:NavigationProps) => {
       >
         <View style={styles.backBox}>
           <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-            <Image source={require('../../assets/images/back.png')} style={styles.backIcon} />
+            <Image source={Icons.backArrow} style={styles.backIcon} />
           </TouchableOpacity>
         </View>
         <View style={styles.contentContainer}>
@@ -71,13 +73,13 @@ const FactorAuth = ({ navigation }:NavigationProps) => {
                     countryCode={countryCode}
                     visible={isPickerVisible}
                     onSelect={(country) => {
-                      setCountryCode(country.cca2);               
-                      setCallingCode(country.callingCode[0]);    
-                      setPickerVisible(false);                      
+                      setCountryCode(country.cca2);
+                      setCallingCode(country.callingCode[0]);
+                      setPickerVisible(false);
                     }}
                     onClose={() => setPickerVisible(false)}
                   />
-                 
+
                   <Image
                     source={{ uri: `https://flagcdn.com/w320/${countryCode.toLowerCase()}.png` }}
                     style={styles.flagImage}

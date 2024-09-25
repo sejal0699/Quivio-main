@@ -1,33 +1,36 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { 
-  View, 
-  TextInput, 
-  Image, 
-  TouchableOpacity, 
-  Text, 
-  StyleSheet, 
-  Animated 
+import {
+  View,
+  TextInput,
+  Image,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  Animated
 } from 'react-native';
+import { Icons } from '../assets';
+
+import { colors } from '../themes';
 
 interface CustomTextInputProps {
   value: string;
   onChangeText: (text: string) => void;
-  placeholder?: string; 
-  iconSource?: any; 
-  rightIconSource?: any; 
+  placeholder?: string;
+  iconSource?: any;
+  rightIconSource?: any;
   secureTextEntry?: boolean;
   onRightIconPress?: () => void;
   error?: string;
 }
-const CustomTextInput:React.FC<CustomTextInputProps> = ({ 
-  value, 
-  onChangeText, 
-  placeholder, 
-  iconSource, 
-  rightIconSource, 
-  secureTextEntry: initialSecureTextEntry, 
-  onRightIconPress, 
-  error 
+const CustomTextInput: React.FC<CustomTextInputProps> = ({
+  value,
+  onChangeText,
+  placeholder,
+  iconSource,
+  rightIconSource,
+  secureTextEntry: initialSecureTextEntry,
+  onRightIconPress,
+  error
 }) => {
   const [secureTextEntry, setSecureTextEntry] = useState(initialSecureTextEntry);
   const [rightIcon, setRightIcon] = useState(rightIconSource);
@@ -46,8 +49,8 @@ const CustomTextInput:React.FC<CustomTextInputProps> = ({
   const toggleSecureTextEntry = () => {
     setSecureTextEntry(!secureTextEntry);
     const newIcon = secureTextEntry
-      ? require('../assets/images/eye-off.png')
-      : require('../assets/images/eye.png');
+      ? (Icons.closedEyeIcon)
+      : (Icons.eyeIcon);
     setRightIcon(newIcon);
 
     if (onRightIconPress) {
@@ -113,15 +116,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#FFFFFF',
+    borderColor: colors.white,
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 10,
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     position: 'relative',
   },
   inputWrapperError: {
-    borderColor: 'red',
+    borderColor: colors.red,
   },
   leftIcon: {
     width: 20,
@@ -136,15 +139,15 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     padding: 5,
-    
+
   },
   errorText: {
-    color: 'red',
+    color: colors.red,
     fontSize: 12,
     marginTop: 4,
   },
   errorImage: {
-    tintColor: 'red',
+    tintColor: colors.red,
   },
 });
 

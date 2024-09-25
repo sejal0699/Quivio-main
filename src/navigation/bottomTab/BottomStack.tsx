@@ -2,56 +2,54 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image } from 'react-native';
-import homeIcon from "../../assets/images/homes.png";
-import settingsIcon from "../../assets/images/star.png"
-import shopIcon from "../../assets/images/user.png"
-import Icon from "../../assets/images/menu.png"
 import HomeScreen from '../../screens/home';
 import Account from '../../screens/account';
 import Favorite from '../../screens/favorites';
 import Menu from '../../screens/menu';
+import { ScreenNames } from '../screenNames';
+import { Icons, Images } from '../../assets';
 
 const Tab = createBottomTabNavigator();
 
 function BottomStack() {
     return (
         <Tab.Navigator>
-            <Tab.Screen name="home" component={HomeScreen} options={{
+            <Tab.Screen name={ScreenNames.Home} component={HomeScreen} options={{
                 headerShown: false,
                 tabBarIcon: () => (
                     <Image
-                        source={homeIcon}
+                        source={Icons.homeIcon}
                         style={{ width: 25, height: 25 }}
                     />
                 ),
             }}
             />
-            <Tab.Screen name="Account" component={Account}
+            <Tab.Screen name={ScreenNames.Profile} component={Account}
                 options={{
                     tabBarIcon: () => (
                         <Image
-                            source={shopIcon}
+                            source={Icons.userIcon}
                             style={{ width: 25, height: 25 }}
                         />
                     ),
                 }}
             />
-            <Tab.Screen name="Favourites" component={Favorite}
+            <Tab.Screen name={ScreenNames.Favourites} component={Favorite}
                 options={{
                     tabBarIcon: () => (
                         <Image
-                            source={settingsIcon}
+                            source={Icons.settingsIcon}
                             style={{ width: 25, height: 25 }}
                         />
                     ),
                 }}
             />
 
-            <Tab.Screen name="Menu" component={Menu}
+            <Tab.Screen name={ScreenNames.Menu} component={Menu}
                 options={{
                     tabBarIcon: () => (
                         <Image
-                            source={Icon}
+                            source={Icons.menuIcon}
                             style={{ width: 20, height: 20 }}
                         />
                     ),

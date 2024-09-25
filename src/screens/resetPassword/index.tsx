@@ -4,11 +4,13 @@ import styles from './styles';
 import CustomTextInput from '../../components/CustomTextInput';
 import Toast from 'react-native-toast-message';
 import { useNavigation } from '@react-navigation/native';
-import tickIcon from '../../assets/images/check.png';
-import crossIcon from '../../assets/images/close.png';
+
+
 import CustomToast from '../../components/CustomToast';
 
 import CustomModal from '../../components/CustomModal';
+import { ScreenNames } from '../../navigation/screenNames';
+import { Icons, Images } from '../../assets';
 
 const ResetPasswordScreen = () => {
   const [password, setPassword] = useState('');
@@ -64,7 +66,7 @@ const ResetPasswordScreen = () => {
   const handleCloseModal = () => {
 
     setIsModalVisible(false);
-    navigation.navigate('login');
+    navigation.navigate(ScreenNames.Login);
   };
 
   return (
@@ -73,10 +75,10 @@ const ResetPasswordScreen = () => {
         <View style={styles.headerContainer}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <View>
-              <Image source={require('../../assets/images/Color.png')} style={styles.eyeIcon} />
+              <Image source={Images.color} style={styles.eyeIcon} />
             </View>
             <View>
-              <Image source={require('../../assets/images/backdrop.png')} style={styles.backdropIcon} />
+              <Image source={Images.backDrop} style={styles.backdropIcon} />
             </View>
           </View>
 
@@ -90,28 +92,28 @@ const ResetPasswordScreen = () => {
             value={password}
             onChangeText={handlePasswordChange}
             placeholder="New Password"
-            iconSource={require('../../assets/images/lock.png')}
+            iconSource={Icons.lockIcon}
             secureTextEntry={!isPasswordVisible}
-            rightIconSource={require('../../assets/images/eye.png')}
+            rightIconSource={Icons.eyeIcon}
             onRightIconPress={togglePasswordVisibility}
           />
 
           {isTyping && (
             <View style={styles.criteriaContainer}>
               <View style={styles.criteriaItem}>
-                <Image source={passwordCriteria.length ? tickIcon : crossIcon} style={styles.criteriaIcon} />
+                <Image source={passwordCriteria.length ? Icons.tick : Icons.cross} style={styles.criteriaIcon} />
                 <Text style={passwordCriteria.length ? styles.valid : styles.invalid}>8 characters or above</Text>
               </View>
               <View style={styles.criteriaItem}>
-                <Image source={passwordCriteria.specialChar ? tickIcon : crossIcon} style={styles.criteriaIcon} />
+                <Image source={passwordCriteria.specialChar ? Icons.tick : Icons.cross} style={styles.criteriaIcon} />
                 <Text style={passwordCriteria.specialChar ? styles.valid : styles.invalid}>1 or more special characters</Text>
               </View>
               <View style={styles.criteriaItem}>
-                <Image source={passwordCriteria.number ? tickIcon : crossIcon} style={styles.criteriaIcon} />
+                <Image source={passwordCriteria.number ? Icons.tick : Icons.cross} style={styles.criteriaIcon} />
                 <Text style={passwordCriteria.number ? styles.valid : styles.invalid}>1 or more numbers</Text>
               </View>
               <View style={styles.criteriaItem}>
-                <Image source={passwordCriteria.upperLower ? tickIcon : crossIcon} style={styles.criteriaIcon} />
+                <Image source={passwordCriteria.upperLower ? Icons.tick : Icons.cross} style={styles.criteriaIcon} />
                 <Text style={passwordCriteria.upperLower ? styles.valid : styles.invalid}>Upper and lowercase</Text>
               </View>
             </View>
@@ -124,9 +126,9 @@ const ResetPasswordScreen = () => {
             value={confirmPassword}
             onChangeText={handleConfirmPasswordChange}
             placeholder="Confirm Password"
-            iconSource={require('../../assets/images/lock.png')}
+            iconSource={Icons.lockIcon}
             secureTextEntry={!isConfirmPasswordVisible}
-            rightIconSource={require('../../assets/images/eye.png')}
+            rightIconSource={Icons.eyeIcon}
             onRightIconPress={toggleConfirmPasswordVisibility}
           />
         </View>
@@ -146,7 +148,7 @@ const ResetPasswordScreen = () => {
         visible={isModalVisible}
         title="Password Updated!"
         description="  Your new password has been updated successfully."
-        imageSource={require('../../assets/images/key.png')}
+        imageSource={Icons.keyIcon}
         buttonText="Back to Login"
         closeModal={handleCloseModal}
 

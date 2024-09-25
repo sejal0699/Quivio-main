@@ -4,18 +4,20 @@ import Header from '../../components/Header';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 import SecureAccountModal from '../../components/SecureAccountModal';
+import { ScreenNames } from '../../navigation/screenNames';
+import { Icons, Images } from '../../assets';
 
-interface textProps{
-  label:string
+interface textProps {
+  label: string
 }
 
-const BoxItem = ({ label }:textProps) => (
+const BoxItem = ({ label }: textProps) => (
   <View style={styles.box}>
     <Image
-      source={require('../../assets/images/announce.png')}
+      source={Icons.announce}
     />
     <Text style={styles.text}>{label}</Text>
-   
+
   </View>
 );
 
@@ -31,9 +33,9 @@ const HomeScreen = () => {
 
   const closeModal = () => {
     setModalVisible(false);
-    navigation.navigate('2fa')
+    navigation.navigate(ScreenNames.FA)
   };
-  
+
   const data = [
     {
       id: '1', title: 'Successfully configured POS for sites', subheading: 'Jun 3, 2023 | 12:30 PM', date: '12:45'
@@ -48,7 +50,7 @@ const HomeScreen = () => {
       id: '4', title: 'Activated the user access group named Site manager', subheading: 'Jun 3, 2023 | 12:30 PM', date: '12:45'
     },
 
-{
+    {
       id: '5', title: 'Activated the user access group named Site manager', subheading: 'Jun 3, 2023 | 12:30 PM', date: '12:45'
     },
     {
@@ -63,20 +65,20 @@ const HomeScreen = () => {
 
   ];
 
-  const renderItem = ({ item }:any) => (
+  const renderItem = ({ item }: any) => (
 
     <View style={styles.listContainer}>
       <View style={styles.rowbox}>
         <View style={styles.imagebox}>
           <Image
-            source={require('../../assets/images/userProfile.png')}
+            source={Icons.userProfileIcon}
             style={styles.icon}
           />
           <View>
             <Text style={styles.titleText}>{item.title}</Text>
             <Text style={styles.subheadingText}>{item.subheading}</Text>
           </View>
-        
+
         </View>
 
       </View>
@@ -92,8 +94,8 @@ const HomeScreen = () => {
           <TouchableOpacity onPress={openModal}>
             <View style={styles.cardRow}>
               <Image
-                source={require('../../assets/images/fix.png')}
-              
+                source={Icons.fixIcon}
+
               />
               <View style={styles.textColumn}>
                 <Text style={styles.balanceTitle}>Complete your account setup</Text>
@@ -111,17 +113,17 @@ const HomeScreen = () => {
         </View>
 
         <View style={styles.textContainer}>
-        <Text style={styles.heading}>ACTIVITIES</Text>
-        <View style={styles.productContainer}>
-        <Text style={styles.headings}>All Product</Text>
-        <Image
-                source={require('../../assets/images/downarrow.png')}
-                style={styles.iconImage1}
-              />
+          <Text style={styles.heading}>ACTIVITIES</Text>
+          <View style={styles.productContainer}>
+            <Text style={styles.headings}>All Product</Text>
+            <Image
+              source={Icons.downArrow}
+              style={styles.iconImage1}
+            />
+          </View>
+
         </View>
-        
-        </View>
-        
+
         <View style={styles.listContainer}>
           <FlatList
             data={data}

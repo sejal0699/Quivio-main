@@ -10,10 +10,15 @@ import SplashScreen from '../screens/splash/index';
 import DrawerStack from './drawerTab/DrawerStack';
 import ResetPasswordScreen from '../screens/resetPassword';
 import FactorAuth from '../screens/2fa';
+import { ScreenNames } from './screenNames';
+import {
+  NavigationContainer,
+  useNavigationContainerRef,
+} from '@react-navigation/native';
 
-const AuthStack = () => {
+const RootNavigator = () => {
   const Stack = createNativeStackNavigator();
-
+  const navigationRef: any = useNavigationContainerRef();
   const [isFirstLaunch, setIsFirstLaunch] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -39,21 +44,23 @@ const AuthStack = () => {
   }
 
   return (
-    <Stack.Navigator initialRouteName="SplashScreen">
-      <Stack.Screen
-        name="SplashScreen"
-        options={{ headerShown: false }}>
-        {props => <SplashScreen {...props} isFirstLaunch={isFirstLaunch} />}
-      </Stack.Screen>
-      <Stack.Screen name="reset" component={ResetPasswordScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="2fa" component={FactorAuth} options={{ headerShown: false }} />
-      <Stack.Screen name="drawerStack" component={DrawerStack} options={{ headerShown: false }} />
-      <Stack.Screen name="tutorial" component={TutorialScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="login" component={LoginScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="verify" component={VerificationScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="forgetPassword" component={ForgotPasswordScreen} options={{ headerShown: false }} />
-    </Stack.Navigator>
+    <NavigationContainer ref={navigationRef}>
+      <Stack.Navigator initialRouteName={ScreenNames.Splash}>
+        <Stack.Screen
+          name={ScreenNames.Splash}
+          options={{ headerShown: false }}>
+          {props => <SplashScreen {...props} isFirstLaunch={isFirstLaunch} />}
+        </Stack.Screen>
+        <Stack.Screen name={ScreenNames.Reset} component={ResetPasswordScreen} options={{ headerShown: false }} />
+        <Stack.Screen name={ScreenNames.FA} component={FactorAuth} options={{ headerShown: false }} />
+        <Stack.Screen name={ScreenNames.Drawer} component={DrawerStack} options={{ headerShown: false }} />
+        <Stack.Screen name={ScreenNames.Tutorial} component={TutorialScreen} options={{ headerShown: false }} />
+        <Stack.Screen name={ScreenNames.Login} component={LoginScreen} options={{ headerShown: false }} />
+        <Stack.Screen name={ScreenNames.Verify} component={VerificationScreen} options={{ headerShown: false }} />
+        <Stack.Screen name={ScreenNames.ForgotPassword} component={ForgotPasswordScreen} options={{ headerShown: false }} />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
-export default AuthStack
+export default RootNavigator

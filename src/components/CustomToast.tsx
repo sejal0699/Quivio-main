@@ -1,15 +1,17 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import Toast from 'react-native-toast-message';
+import { Icons, Images } from '../assets';
+import { colors } from '../themes';
 
-interface Text1{
-  text1:String
+interface Text1 {
+  text1: String
 }
-const CustomToast = ({ text1 }:Text1) => {
+const CustomToast = ({ text1 }: Text1) => {
   return (
     <View style={styles.toastContainer}>
       <View style={styles.toastContent}>
-        <Image source={require('../assets/images/alert.png')} style={styles.icon} />
+        <Image source={Icons.alert} style={styles.icon} />
         <Text style={styles.toastText}>{text1}</Text>
       </View>
     </View>
@@ -18,13 +20,13 @@ const CustomToast = ({ text1 }:Text1) => {
 
 const styles = StyleSheet.create({
   toastContainer: {
-    backgroundColor: '#F44336', 
+    backgroundColor: colors.alertRed,
     paddingHorizontal: 15,
     paddingVertical: 15,
     borderRadius: 10,
     flexDirection: 'row',
     alignItems: 'center',
-    minWidth: '80%', 
+    minWidth: '80%',
     marginTop: 15,
   },
   toastContent: {
@@ -38,7 +40,7 @@ const styles = StyleSheet.create({
 
   },
   toastText: {
-    color: '#fff',
+    color: colors.white,
     fontSize: 14,
   },
 });
