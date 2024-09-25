@@ -33,20 +33,13 @@ const Icons = {
 };
 
 const Images = {
-
     backDrop: require('./images/backdrop.png'),
     background: require('./images/background.png'),
-
     color: require('./images/Color.png'),
-
     landingImage: require('./images/Landing.png'),
-
     onboardingImage: require('./images/onboard.jpg'),
-
     popupImage: require('./images/popup.png'),
-
     tutorialImage: require('./images/tuto.jpg'),
-
     logoImage: require('./images/Whiteicon.png'),
 }
 

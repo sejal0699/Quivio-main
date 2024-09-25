@@ -13,7 +13,6 @@ const SplashScreen = ({ navigation, isFirstLaunch }: Props) => {
   const logoOpacity = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-
     Animated.parallel([
       Animated.timing(logoScale, {
         toValue: 1,
@@ -29,7 +28,6 @@ const SplashScreen = ({ navigation, isFirstLaunch }: Props) => {
 
     setTimeout(() => {
       console.log(isFirstLaunch);
-
       if (isFirstLaunch) {
         navigation.replace(ScreenNames.Tutorial);
       } else {
@@ -41,12 +39,10 @@ const SplashScreen = ({ navigation, isFirstLaunch }: Props) => {
 
   return (
     <View style={styles.container}>
-
       <Image
         source={Images.landingImage}
         style={styles.logo}
       />
-
     </View>
   );
 };

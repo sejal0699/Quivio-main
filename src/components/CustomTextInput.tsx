@@ -13,6 +13,7 @@ interface CustomTextInputProps {
   onRightIconPress?: () => void;
   error?: string;
 }
+//add task
 
 
 const CustomTextInput = (props: CustomTextInputProps) => {

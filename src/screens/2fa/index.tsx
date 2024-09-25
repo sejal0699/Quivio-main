@@ -10,6 +10,7 @@ import { Icons, Images } from '../../assets';
 interface NavigationProps {
   navigation: any
 }
+
 const FactorAuth = ({ navigation }: NavigationProps) => {
   const defaultPhoneNumber = '1234567890';
   const [phone, setPhone] = useState('');
@@ -104,7 +105,6 @@ const FactorAuth = ({ navigation }: NavigationProps) => {
             <Text style={styles.buttonText}>Send Code</Text>
           </TouchableOpacity>
         </View>
-
         <Toast config={{ custom_error: ({ text1 }) => <CustomToast text1={text1} /> }} />
       </KeyboardAvoidingView>
     </SafeAreaView>
