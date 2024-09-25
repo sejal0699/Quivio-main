@@ -13,7 +13,8 @@ import FactorAuth from '../screens/2fa';
 
 const AuthStack = () => {
   const Stack = createNativeStackNavigator();
-  const [isFirstLaunch, setIsFirstLaunch] = useState(null);
+
+  const [isFirstLaunch, setIsFirstLaunch] = useState<boolean | null>(null);
 
   useEffect(() => {
     const checkFirstLaunch = async () => {
@@ -44,9 +45,9 @@ const AuthStack = () => {
         options={{ headerShown: false }}>
         {props => <SplashScreen {...props} isFirstLaunch={isFirstLaunch} />}
       </Stack.Screen>
-      <Stack.Screen name="reset" component={ResetPasswordScreen}  options={{ headerShown: false }}/>
-      <Stack.Screen name="2fa" component={FactorAuth}  options={{ headerShown: false }}/>
-      <Stack.Screen name="drawerStack" component={DrawerStack}  options={{ headerShown: false }}/>
+      <Stack.Screen name="reset" component={ResetPasswordScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="2fa" component={FactorAuth} options={{ headerShown: false }} />
+      <Stack.Screen name="drawerStack" component={DrawerStack} options={{ headerShown: false }} />
       <Stack.Screen name="tutorial" component={TutorialScreen} options={{ headerShown: false }} />
       <Stack.Screen name="login" component={LoginScreen} options={{ headerShown: false }} />
       <Stack.Screen name="verify" component={VerificationScreen} options={{ headerShown: false }} />

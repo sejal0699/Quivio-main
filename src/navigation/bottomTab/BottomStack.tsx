@@ -36,7 +36,6 @@ function BottomStack() {
                     ),
                 }}
             />
-
             <Tab.Screen name="Favourites" component={Favorite}
                 options={{
                     tabBarIcon: () => (
@@ -47,7 +46,7 @@ function BottomStack() {
                     ),
                 }}
             />
-            
+
             <Tab.Screen name="Menu" component={Menu}
                 options={{
                     tabBarIcon: () => (

@@ -4,69 +4,22 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContext } from '@react-navigation/native';
 class Header extends Component {
   static contextType = NavigationContext;
-  state = {
-    isModalVisible: false,
-  };
-  
 
-  toggleModal = () => {
-    // const { navigation } = this.props; 
-    // console.log(navigation);
-  
-   
-    //   navigation.openDrawer();
-  
-   // this.setState({ isModalVisible: !this.state.isModalVisible });
- 
-  };
 
-  handleLogout = async () => {
-    try {
-        const token = await AsyncStorage.getItem('authToken');
-        if (token !== null) {       
-            console.log('Token is', token);
-        } else {
-            console.log('No token found');
-        }
-
-        await AsyncStorage.removeItem('authToken');
-        const navigation = this.context;
-         navigation.navigate('ScreenNames.login');
-         
-        
-    } catch (error) {
-        console.error('Failed to logout:', error);
-    }
-};
-
-// handleLog=async()=>{
-//   const navigation = this.context;
-//   navigation.navigate('sideBar');
-  
-// }
 
   render() {
-    const { isModalVisible } = this.state;
+
 
     return (
       <View style={styles.container}>
         <View style={styles.header}>
           <View style={styles.headerContent}>
-            <TouchableOpacity 
-            onPress={this.toggleModal}
-            // onPress={this.handleLog}
 
-            >
-              {/* <Image
-                source={require('../../assets/loc.png')}
-                style={styles.profileImage}
-              /> */}
-            </TouchableOpacity>
             <View style={styles.headerText}>
               <View style={styles.text}>
                 <Text style={styles.location}>Welcome</Text>
-            
-                  <Text style={styles.name}>Kevin</Text>
+
+                <Text style={styles.name}>Kevin</Text>
 
               </View>
             </View>
@@ -84,20 +37,7 @@ class Header extends Component {
           </View>
         </View>
 
-        <Modal
-          visible={isModalVisible}
-          transparent={true}
-          animationType="fade"
-          onRequestClose={this.toggleModal}
-        >
-          <Pressable style={styles.modalOverlay} onPress={this.toggleModal}>
-            <View style={styles.modalContent}>
-              <TouchableOpacity onPress={this.handleLogout}>
-                <Text style={styles.modalItem}>Logout</Text>
-              </TouchableOpacity>
-            </View>
-          </Pressable>
-        </Modal>
+
       </View>
     );
   }
@@ -105,9 +45,9 @@ class Header extends Component {
 
 const styles = StyleSheet.create({
   container: {
- 
+
     backgroundColor: '#2A7BBB',
-   
+
   },
   header: {
     flexDirection: 'row',
@@ -124,34 +64,34 @@ const styles = StyleSheet.create({
   },
   location: {
     color: "white",
-    marginLeft:10,
-    fontSize:20,
-    fontWeight:'bold'
+    marginLeft: 10,
+    fontSize: 20,
+    fontWeight: 'bold'
   },
   headerContent: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop:30
+    marginTop: 30
   },
   profileImage: {
     width: 20,
     height: 20,
     borderRadius: 25,
     marginRight: 20,
-    marginLeft:10
+    marginLeft: 10
   },
   headerText: {
     flexDirection: 'row',
     marginTop: 20,
-  
-  marginLeft:10
+
+    marginLeft: 10
   },
   name: {
     fontSize: 18,
-    fontWeight: 'semi-bold',
+    fontWeight: 'semibold',
     color: 'white',
-  marginLeft:10,
-  marginTop:4
+    marginLeft: 10,
+    marginTop: 4
   },
   details: {
     color: '#888',
@@ -258,15 +198,15 @@ const styles = StyleSheet.create({
   iconImage: {
     width: 22,
     height: 24,
-   
-    
+
+
   },
   cartIcon: {
     flexDirection: 'row',
     gap: 10,
-    marginTop:50,
-    marginRight:20,
-   
+    marginTop: 50,
+    marginRight: 20,
+
   },
   arrow: {
     height: 10,
@@ -278,7 +218,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.5)', 
+    backgroundColor: 'rgba(0,0,0,0.5)',
   },
   modalContent: {
     backgroundColor: 'white',
@@ -291,7 +231,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: 'red',
     paddingVertical: 10,
-    borderRadius:10,
+    borderRadius: 10,
   },
 });
 

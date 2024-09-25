@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image, KeyboardAvoidingView, Platform } from 'react-native';
 import Toast from 'react-native-toast-message';
-import ResetLinkModal from '../../components/ResetLinkModal';
 import CustomTextInput from '../../components/CustomTextInput';
 import CustomToast from '../../components/CustomToast';
 import styles from './styles';
+import CustomModal from '../../components/CustomModal';
 
-interface NavigationProps{
+interface NavigationProps {
 
 }
 
@@ -14,14 +14,14 @@ interface Props {
   email: string,
   isModalVisible: boolean,
   error: string,
- 
+
 }
 
 interface States {
   email: string,
   isModalVisible: boolean,
   error: string,
- 
+
 }
 
 class ForgotPasswordScreen extends Component<States, Props> {
@@ -134,9 +134,15 @@ class ForgotPasswordScreen extends Component<States, Props> {
               <Text style={styles.buttonText}>Send Link</Text>
             </TouchableOpacity>
           </View>
-          <ResetLinkModal
+
+          <CustomModal
             visible={isModalVisible}
+            title="Link Sent"
+            description="The link to reset your password has been sent on your email address."
+            imageSource={require('../../assets/images/link.png')}
+            buttonText="Back to Login"
             closeModal={this.closeModal}
+
           />
           <Toast config={{ custom_error: ({ text1 }) => <CustomToast text1={text1} /> }} ref={(ref) => Toast.setRef(ref)} />
 
