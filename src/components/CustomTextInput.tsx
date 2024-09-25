@@ -1,15 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import {
-  View,
-  TextInput,
-  Image,
-  TouchableOpacity,
-  Text,
-  StyleSheet,
-  Animated
-} from 'react-native';
+import { View, TextInput, Image, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
 import { Icons } from '../assets';
-
 import { colors } from '../themes';
 
 interface CustomTextInputProps {
@@ -22,16 +13,10 @@ interface CustomTextInputProps {
   onRightIconPress?: () => void;
   error?: string;
 }
-const CustomTextInput: React.FC<CustomTextInputProps> = ({
-  value,
-  onChangeText,
-  placeholder,
-  iconSource,
-  rightIconSource,
-  secureTextEntry: initialSecureTextEntry,
-  onRightIconPress,
-  error
-}) => {
+
+
+const CustomTextInput = (props: CustomTextInputProps) => {
+  const { value, onChangeText, placeholder, iconSource, rightIconSource, secureTextEntry: initialSecureTextEntry, onRightIconPress, error } = props;
   const [secureTextEntry, setSecureTextEntry] = useState(initialSecureTextEntry);
   const [rightIcon, setRightIcon] = useState(rightIconSource);
   const [isFocused, setIsFocused] = useState(false);
@@ -94,7 +79,6 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({
           onBlur={handleBlur}
           secureTextEntry={secureTextEntry}
           style={styles.input}
-
         />
         {rightIcon && (
           <TouchableOpacity onPress={toggleSecureTextEntry}>

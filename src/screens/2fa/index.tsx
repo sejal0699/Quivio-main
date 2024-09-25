@@ -1,14 +1,5 @@
 import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  SafeAreaView,
-  TouchableOpacity,
-  KeyboardAvoidingView,
-  TextInput,
-  Image,
-  Platform,
-} from 'react-native';
+import { View, Text, SafeAreaView, TouchableOpacity, KeyboardAvoidingView, TextInput, Image, Platform, } from 'react-native';
 import styles from './styles';
 import CountryPicker from 'react-native-country-picker-modal';
 import Toast from 'react-native-toast-message';

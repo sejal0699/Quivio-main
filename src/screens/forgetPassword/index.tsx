@@ -146,7 +146,7 @@ class ForgotPasswordScreen extends Component<States, Props> {
             closeModal={this.closeModal}
 
           />
-          <Toast config={{ custom_error: ({ text1 }) => <CustomToast text1={text1} /> }} ref={(ref) => Toast.setRef(ref)} />
+          <Toast config={{ custom_error: ({ text1 }) => <CustomToast text1={text1} /> }} />
 
         </KeyboardAvoidingView>
       </SafeAreaView>

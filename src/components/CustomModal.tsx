@@ -13,8 +13,7 @@ interface CustomModalProps {
 }
 
 const CustomModal = (props: CustomModalProps) => {
-    const { visible, title, description, imageSource, buttonText, closeModal, onButtonPress, } = props;
-
+    const { visible, title, description, imageSource, buttonText, closeModal, onButtonPress } = props;
 
     const handleButtonPress = () => {
         if (onButtonPress) {
@@ -46,10 +45,11 @@ const CustomModal = (props: CustomModalProps) => {
     );
 };
 
+
 const styles = StyleSheet.create({
     modalOverlay: {
         flex: 1,
-        backgroundColor: 'rgba(0,0,0,0.5)',
+        backgroundColor: colors.overlayColor,
         justifyContent: 'center',
         alignItems: 'center',
     },

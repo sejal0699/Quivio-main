@@ -16,12 +16,10 @@ const LoginScreen = () => {
   const [errors, setErrors] = useState({});
   const [isModalVisible, setModalVisible] = useState(false);
   const [isPasswordVisible, setPasswordVisible] = useState(false);
-
   const navigation = useContext(NavigationContext);
 
   const validateInputs = () => {
     const validationErrors = {};
-
     if (!email.trim()) {
       validationErrors.email = 'Email Address is required';
     } else if (!/\S+@\S+\.\S+/.test(email)) {
@@ -30,11 +28,10 @@ const LoginScreen = () => {
     if (!password) {
       validationErrors.password = 'Password is required';
     }
-
     setErrors(validationErrors);
   };
 
-  const handleEmailChange = (text) => {
+  const handleEmailChange = (text: string) => {
     setEmail(text);
     validateInputs();
   };
@@ -42,7 +39,7 @@ const LoginScreen = () => {
     navigation.navigate(ScreenNames.Drawer)
   }
 
-  const handlePasswordChange = (text) => {
+  const handlePasswordChange = (text: string) => {
     setPassword(text);
     validateInputs();
   };
@@ -69,7 +66,6 @@ const LoginScreen = () => {
   const handlePress = () => {
     const validEmail = 'Test@gmail.com';
     const validPassword = '123456';
-
     if (email !== validEmail || password !== validPassword) {
       handleLogin();
     } else {
@@ -135,6 +131,8 @@ const LoginScreen = () => {
         closeModal={() => setModalVisible(false)}
         onButtonPress={() => handleNavigate()}
       />
+
+
 
       <Toast config={{ custom_error: ({ text1 }) => <CustomToast text1={text1} /> }} />
     </KeyboardAvoidingView>

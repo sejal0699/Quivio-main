@@ -1,3 +1,5 @@
+import { fontFamily } from './fonts'
+
 const Icons = {
     alert: require('./icons/alert.png'),
     announce: require('./icons/announce.png'),
@@ -48,4 +50,4 @@ const Images = {
     logoImage: require('./images/Whiteicon.png'),
 }
 
-export { Images, Icons }
+export { Images, Icons, fontFamily }

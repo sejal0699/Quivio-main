@@ -8,5 +8,6 @@ export default {
   blue: '#007BFF',
   alertRed: '#F44336',
   strongBlue: '#2A7BBB',
-  lightGrey: '#888'
+  lightGrey: '#888',
+  overlayColor: 'rgba(0,0,0,0.5)'
 };

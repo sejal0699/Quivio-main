@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import Toast from 'react-native-toast-message';
 import { Icons, Images } from '../assets';
 import { colors } from '../themes';
 
