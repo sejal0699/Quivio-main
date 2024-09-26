@@ -31,15 +31,11 @@ const EditProfileScreen = () => {
         setGender(selectedGender);
         setGenderDropdownVisible(false);
     };
-
-
     const genderOptions = [
         { label: 'Male', value: 'male' },
         { label: 'Female', value: 'female' },
         { label: 'None', value: 'none' },
     ];
-
-
 
     const requestPermission = async (permissionType) => {
         console.log(permissionType);
@@ -55,8 +51,6 @@ const EditProfileScreen = () => {
 
     const handleImagePick = async (source) => {
         let hasPermission;
-
-        // Check permission based on the selected source
         if (source === 'gallery') {
             hasPermission = await requestPermission(PERMISSIONS.IOS.PHOTO_LIBRARY);
         } else if (source === 'camera') {
@@ -66,10 +60,10 @@ const EditProfileScreen = () => {
             return;
         }
 
-        if (!hasPermission) {
-            console.warn("Permission not granted!");
-            return;
-        }
+        // if (!hasPermission) {
+        //     console.warn("Permission not granted!");
+        //     return;
+        // }
 
         const options = {
             mediaType: 'photo',
@@ -90,9 +84,6 @@ const EditProfileScreen = () => {
             }
             setModalVisible(false);
         };
-
-
-
         if (source === 'gallery') {
             launchImageLibrary(options, callback);
         } else {
@@ -112,22 +103,17 @@ const EditProfileScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            {/* Header */}
             <View style={styles.header}>
                 <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-
                     <Text>{'<'}</Text>
-
-
                 </TouchableOpacity>
                 <Text style={styles.headerText}>Edit Profile</Text>
             </View>
 
-            {/* Profile Picture Section */}
             <View style={styles.profileSection}>
                 <View style={styles.profilePictureContainer}>
                     <Image
-                        source={{ uri: profileImage }}
+                        source={{ uri: profileImage.toString() }}
                         style={styles.profilePicture}
                     />
                 </View>
@@ -137,7 +123,7 @@ const EditProfileScreen = () => {
                 </TouchableOpacity>
             </View>
 
-            {/* Form Inputs */}
+
             <CustomTextInput
                 value={name}
                 onChangeText={setName}
@@ -208,7 +194,7 @@ const EditProfileScreen = () => {
                 <Text style={styles.updateButtonText}>Update</Text>
             </TouchableOpacity>
 
-            {/* Date Picker Modal */}
+
             <DateTimePickerModal
                 isVisible={isDatePickerVisible}
                 mode="date"
@@ -217,7 +203,7 @@ const EditProfileScreen = () => {
                 display={"inline"}
             />
 
-            {/* Modal for image options */}
+
             <SecureAccountModal
                 visible={modalVisible}
                 closeModal={() => setModalVisible(false)}
