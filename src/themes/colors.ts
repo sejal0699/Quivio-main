@@ -13,5 +13,5 @@ export default {
   darkblue: '#000080',
   pink: '#EE28A9',
   grey: '#4B5879',
-  skyblue: '#87CEEB'
+  skyblue: '#E6E6FA'
 };

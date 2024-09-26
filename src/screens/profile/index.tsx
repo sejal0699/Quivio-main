@@ -105,7 +105,9 @@ const EditProfileScreen = () => {
         <SafeAreaView style={styles.container}>
             <View style={styles.header}>
                 <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-                    <Text>{'<'}</Text>
+                    <View style={styles.backBox}>
+                        <Text style={{ left: 10 }}>{'<'}</Text>
+                    </View>
                 </TouchableOpacity>
                 <Text style={styles.headerText}>Edit Profile</Text>
             </View>

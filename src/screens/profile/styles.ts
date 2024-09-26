@@ -26,7 +26,7 @@ export default StyleSheet.create({
         alignItems: 'center',
         marginBottom: 20,
         flexDirection: 'row',
-        paddingTop: 20
+        paddingTop: 50
 
     },
     profilePictureContainer: {
@@ -38,13 +38,15 @@ export default StyleSheet.create({
         alignItems: 'center',
         marginBottom: 10,
 
+
     },
     profilePicture: {
-        width: 100,
-        height: 100,
-        borderRadius: 60,
+        width: 140,
+        height: 140,
+        borderRadius: 90,
         resizeMode: 'cover',
-        backgroundColor: colors.skyblue
+        backgroundColor: colors.skyblue,
+
     },
     changePhotoText: {
         color: colors.pink,
@@ -58,9 +60,11 @@ export default StyleSheet.create({
     updateButton: {
         backgroundColor: colors.darkblue,
         padding: 15,
-        borderRadius: 5,
+        borderRadius: 10,
         alignItems: 'center',
         marginTop: 20,
+        width: '80%',
+        alignSelf: 'center'
 
     },
     updateButtonText: {
@@ -93,6 +97,18 @@ export default StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: '#ddd',
     },
-
+    backBox: {
+        backgroundColor: colors.gray,
+        width: 50,
+        margin: 10,
+        borderRadius: 10,
+        padding: 12,
+        right: 10
+    },
+    backIcon: {
+        width: 22,
+        height: 22,
+        alignSelf: 'center'
+    },
 
 })

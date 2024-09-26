@@ -86,12 +86,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     // backgroundColor: '#007BFF',
   },
-  loginButtonEnabled: {
-    backgroundColor: '#007BFF',
-  },
-  loginButtonDisabled: {
-    backgroundColor: '#B0B0B0',
-  },
+
   buttonText: {
     color: '#fff',
     fontSize: 16,
