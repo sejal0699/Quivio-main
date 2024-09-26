@@ -1,13 +1,14 @@
 
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Image } from 'react-native';
+import { Image, TouchableOpacity } from 'react-native';
 import HomeScreen from '../../screens/home';
 import Account from '../../screens/account';
 import Favorite from '../../screens/favorites';
 import Menu from '../../screens/menu';
 import { ScreenNames } from '../screenNames';
 import { Icons, Images } from '../../assets';
+import { useNavigation } from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,16 +25,30 @@ function BottomStack() {
                 ),
             }}
             />
-            <Tab.Screen name={ScreenNames.Profile} component={Account}
+
+
+
+            <Tab.Screen
+                name={ScreenNames.Profile}
+                component={Account}
                 options={{
-                    tabBarIcon: () => (
-                        <Image
-                            source={Icons.userIcon}
-                            style={{ width: 25, height: 25 }}
-                        />
-                    ),
+                    tabBarButton: (props) => {
+                        const navigation = useNavigation();
+                        return (
+                            <TouchableOpacity
+                                {...props}
+                                onPress={() => navigation.navigate(ScreenNames.Account)}
+                            >
+                                <Image
+                                    source={Icons.userIcon}
+                                    style={{ width: 30, height: 30, bottom: 10 }}
+                                />
+                            </TouchableOpacity>
+                        );
+                    },
                 }}
             />
+
             <Tab.Screen name={ScreenNames.Favourites} component={Favorite}
                 options={{
                     tabBarIcon: () => (

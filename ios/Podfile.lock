@@ -1237,6 +1237,27 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - react-native-image-picker (7.1.2):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - react-native-safe-area-context (4.10.9):
     - React-Core
   - react-native-splash-screen (3.3.0):
@@ -1503,6 +1524,8 @@ PODS:
     - React-utils (= 0.75.2)
   - RNCAsyncStorage (2.0.0):
     - React-Core
+  - RNDateTimePicker (8.2.0):
+    - React-Core
   - RNGestureHandler (2.19.0):
     - DoubleConversion
     - glog
@@ -1524,6 +1547,8 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - RNPermissions (4.1.5):
+    - React-Core
   - RNReanimated (3.15.2):
     - DoubleConversion
     - glog
@@ -1673,6 +1698,7 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - React-Mapbuffer (from `../node_modules/react-native/ReactCommon`)
   - React-microtasksnativemodule (from `../node_modules/react-native/ReactCommon/react/nativemodule/microtasks`)
+  - react-native-image-picker (from `../node_modules/react-native-image-picker`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - React-nativeconfig (from `../node_modules/react-native/ReactCommon`)
@@ -1702,7 +1728,9 @@ DEPENDENCIES:
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
+  - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
@@ -1784,6 +1812,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   React-microtasksnativemodule:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/microtasks"
+  react-native-image-picker:
+    :path: "../node_modules/react-native-image-picker"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-splash-screen:
@@ -1842,8 +1872,12 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
+  RNDateTimePicker:
+    :path: "../node_modules/@react-native-community/datetimepicker"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNPermissions:
+    :path: "../node_modules/react-native-permissions"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
@@ -1889,6 +1923,7 @@ SPEC CHECKSUMS:
   React-logger: 8db32983d75dc2ad54f278f344ccb9b256e694fc
   React-Mapbuffer: 1c08607305558666fd16678b85ef135e455d5c96
   React-microtasksnativemodule: 87b8de96f937faefece8afd2cb3a518321b2ef99
+  react-native-image-picker: 2fbbafdae7a7c6db9d25df2f2b1db4442d2ca2ad
   react-native-safe-area-context: ab8f4a3d8180913bd78ae75dd599c94cce3d5e9a
   react-native-splash-screen: 4312f786b13a81b5169ef346d76d33bc0c6dc457
   React-nativeconfig: 57781b79e11d5af7573e6f77cbf1143b71802a6d
@@ -1918,13 +1953,15 @@ SPEC CHECKSUMS:
   ReactCodegen: 60973d382704c793c605b9be0fc7f31cb279442f
   ReactCommon: 6ef348087d250257c44c0204461c03f036650e9b
   RNCAsyncStorage: d35c79ffba52c1013013e16b1fc295aec2feabb6
+  RNDateTimePicker: 40ffda97d071a98a10fdca4fa97e3977102ccd14
   RNGestureHandler: 3b6fa2bfa341c413d3d08444b838515b58e48ee7
+  RNPermissions: dec6481e344807a55da01e120be2e33d1cb640df
   RNReanimated: ece067b779e0d6c7887c6bb80d381d0a0efd43c9
   RNScreens: 19719a9c326e925498ac3b2d35c4e50fe87afc06
   RNVectorIcons: ef957b2a1cd5efb71e53397257ec4ccffa34d0c4
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
   Yoga: a1d7895431387402a674fd0d1c04ec85e87909b8
 
-PODFILE CHECKSUM: 638dc099b1a039d4d1345d4f152a8570f5e67d2b
+PODFILE CHECKSUM: 2ba7bd076b6467d406103021116102b34f0380fe
 
 COCOAPODS: 1.15.2

@@ -31,8 +31,8 @@ const SplashScreen = ({ navigation, isFirstLaunch }: Props) => {
       if (isFirstLaunch) {
         navigation.replace(ScreenNames.Tutorial);
       } else {
-        // navigation.replace('drawerStack'); 
-        navigation.replace(ScreenNames.Login);
+        //navigation.replace(ScreenNames.Account);
+        navigation.replace(ScreenNames.Drawer);
       }
     }, 2000);
   }, [isFirstLaunch, navigation]);

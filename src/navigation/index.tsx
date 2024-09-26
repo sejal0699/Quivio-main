@@ -15,6 +15,7 @@ import {
   NavigationContainer,
   useNavigationContainerRef,
 } from '@react-navigation/native';
+import EditProfileScreen from '../screens/profile';
 
 const RootNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -58,6 +59,7 @@ const RootNavigator = () => {
         <Stack.Screen name={ScreenNames.Login} component={LoginScreen} options={{ headerShown: false }} />
         <Stack.Screen name={ScreenNames.Verify} component={VerificationScreen} options={{ headerShown: false }} />
         <Stack.Screen name={ScreenNames.ForgotPassword} component={ForgotPasswordScreen} options={{ headerShown: false }} />
+        <Stack.Screen name={ScreenNames.Account} component={EditProfileScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   )

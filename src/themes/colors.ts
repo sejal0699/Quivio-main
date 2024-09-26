@@ -1,7 +1,7 @@
 export default {
   black: '#333333',
   red: '#ff0000',
-  grey: '#555555',
+  gray: '#F6F9FA',
   textGrey: '#5b5b5b',
   midGrey: '#555555',
   white: '#ffffff',
@@ -9,5 +9,9 @@ export default {
   alertRed: '#F44336',
   strongBlue: '#2A7BBB',
   lightGrey: '#888',
-  overlayColor: 'rgba(0,0,0,0.5)'
+  overlayColor: 'rgba(0,0,0,0.5)',
+  darkblue: '#000080',
+  pink: '#EE28A9',
+  grey: '#4B5879',
+  skyblue: '#87CEEB'
 };

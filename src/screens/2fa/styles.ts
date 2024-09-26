@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native";
+import { colors } from "../../themes";
 
 
 export default StyleSheet.create({
 
   container: {
-    flex: 1,
-    backgroundColor: '#E6EDF3',
+
   },
   backButton: {
     margin: 16,
@@ -19,7 +19,12 @@ export default StyleSheet.create({
   loginButtonDisabled: {
     backgroundColor: '#B0B0B0',
   },
-
+  verifyText: {
+    color: colors.pink,
+    fontSize: 16,
+    position: 'absolute',
+    left: 120,
+  },
   input: {
     flexDirection: 'row'
   },
@@ -42,9 +47,10 @@ export default StyleSheet.create({
     flexDirection: 'row',
     borderRadius: 10,
     borderWidth: 1,
-    padding: 12,
+    padding: 22,
     backgroundColor: "#ffffff",
-    borderColor: "#fff"
+
+    borderColor: '#E7EBF3'
   },
   backBox: {
     backgroundColor: "#FFFFFF",
@@ -65,7 +71,7 @@ export default StyleSheet.create({
     marginTop: 10
   },
   form: {
-    marginTop: 20,
+
     flexDirection: 'row',
 
   },
@@ -96,7 +102,7 @@ export default StyleSheet.create({
   },
   inputPhone: {
     fontSize: 14,
-    left:10
+    left: 10
   },
   flagView:
   {
@@ -107,16 +113,18 @@ export default StyleSheet.create({
     height: 80,
     backgroundColor: "#ffffff",
     borderRadius: 8,
-    marginTop: 5,
-    padding: 20
+    marginTop: 6,
+    padding: 26,
+    borderWidth: 1,
+    borderColor: '#E7EBF3'
 
   },
   countryPicker: {
     color: 'black',
     fontSize: 14,
     fontWeight: 'bold',
-    width:40,
-    height:40
+    width: 40,
+    height: 40
   },
   errorMessage: {
     color: 'red',
@@ -124,13 +132,13 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   flagImage: {
-    width: 30,
-    height: 20,
-    resizeMode: 'cover', 
-    marginRight: 10,
-    backgroundColor:"red"
+    width: 40,
+    height: 60,
+    resizeMode: 'center',
+    marginRight: 1,
+
   },
-  
+
 
 
 })

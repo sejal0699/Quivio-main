@@ -2,22 +2,31 @@ import React, { useState, useRef, useEffect } from 'react';
 import { View, TextInput, Image, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
 import { Icons } from '../assets';
 import { colors } from '../themes';
-
 interface CustomTextInputProps {
   value: string;
   onChangeText: (text: string) => void;
   placeholder?: string;
   iconSource?: any;
-  rightIconSource?: any;
+  rightIconSource?: any;  // Image for right icon
+  rightIconText?: string; // Text/emoji for right icon
   secureTextEntry?: boolean;
   onRightIconPress?: () => void;
   error?: string;
 }
-//add task
-
 
 const CustomTextInput = (props: CustomTextInputProps) => {
-  const { value, onChangeText, placeholder, iconSource, rightIconSource, secureTextEntry: initialSecureTextEntry, onRightIconPress, error } = props;
+  const {
+    value,
+    onChangeText,
+    placeholder,
+    iconSource,
+    rightIconSource,
+    rightIconText,
+    secureTextEntry: initialSecureTextEntry,
+    onRightIconPress,
+    error
+  } = props;
+
   const [secureTextEntry, setSecureTextEntry] = useState(initialSecureTextEntry);
   const [rightIcon, setRightIcon] = useState(rightIconSource);
   const [isFocused, setIsFocused] = useState(false);
@@ -34,11 +43,6 @@ const CustomTextInput = (props: CustomTextInputProps) => {
 
   const toggleSecureTextEntry = () => {
     setSecureTextEntry(!secureTextEntry);
-    const newIcon = secureTextEntry
-      ? (Icons.closedEyeIcon)
-      : (Icons.eyeIcon);
-    setRightIcon(newIcon);
-
     if (onRightIconPress) {
       onRightIconPress();
     }
@@ -67,9 +71,6 @@ const CustomTextInput = (props: CustomTextInputProps) => {
   return (
     <View style={styles.inputContainer}>
       <View style={[styles.inputWrapper, error ? styles.inputWrapperError : null]}>
-        {iconSource && (
-          <Image source={iconSource} style={[styles.leftIcon, error ? styles.errorImage : null]} />
-        )}
         <Animated.Text style={labelStyle}>
           {placeholder}
         </Animated.Text>
@@ -79,19 +80,24 @@ const CustomTextInput = (props: CustomTextInputProps) => {
           onFocus={handleFocus}
           onBlur={handleBlur}
           secureTextEntry={secureTextEntry}
+          // placeholder={placeholder}
           style={styles.input}
         />
-        {rightIcon && (
-          <TouchableOpacity onPress={toggleSecureTextEntry}>
-            <Image source={rightIcon} style={styles.rightIcon} />
+        {rightIconSource || rightIconText ? (
+          <TouchableOpacity onPress={onRightIconPress} style={styles.rightIconContainer}>
+            {rightIconSource ? (
+              <Image source={rightIconSource} style={styles.rightIcon} />
+            ) : (
+              <Text style={styles.rightIconText}>{rightIconText}</Text>
+            )}
           </TouchableOpacity>
-        )}
+        ) : null}
       </View>
-
       {error && <Text style={styles.errorText}>{error}</Text>}
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   inputContainer: {
@@ -101,8 +107,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: colors.white,
-    borderRadius: 8,
+    borderColor: '#E7EBF3',
+    borderRadius: 10,
     paddingHorizontal: 12,
     paddingVertical: 10,
     backgroundColor: colors.white,
@@ -116,14 +122,28 @@ const styles = StyleSheet.create({
     height: 20,
     marginRight: 8,
   },
+  rightIconContainer: {
+    position: 'absolute',
+    right: 20,
+    top: '50%',
+    transform: [{ translateY: -1 }],
+    paddingLeft: 10,
+  },
+
   rightIcon: {
     width: 20,
     height: 20,
   },
+  rightIconText: {
+    fontSize: 16,
+    color: colors.pink,
+  },
   input: {
     flex: 1,
     fontSize: 16,
-    padding: 5,
+    padding: 10,
+    paddingRight: 40,
+
 
   },
   errorText: {

@@ -30,6 +30,12 @@ const Icons = {
     userIcon: require('./icons/user.png'),
     userProfileIcon: require('./icons/userProfile.png'),
     secureIcon: require('./icons/secure.png'),
+    calender: require('./icons/calender.png'),
+    gallery: require('./icons/gallery.png'),
+    avatar: require('./icons/Avatar.png'),
+    camera: require('./icons/Camera.png'),
+    arrow: require('./icons/arrow.png'),
+    dropdown: require('./icons/dropdown.png')
 };
 
 const Images = {
@@ -41,6 +47,7 @@ const Images = {
     popupImage: require('./images/popup.png'),
     tutorialImage: require('./images/tuto.jpg'),
     logoImage: require('./images/Whiteicon.png'),
+    profilePic: require('./images/profilepic.png'),
 }
 
 export { Images, Icons, fontFamily }

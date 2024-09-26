@@ -86,7 +86,11 @@ const FactorAuth = ({ navigation }: NavigationProps) => {
                   placeholder="Phone Number"
                   style={styles.inputPhone}
                   keyboardType="phone-pad"
+
                 />
+                <TouchableOpacity>
+                  <Text style={styles.verifyText}>Change</Text>
+                </TouchableOpacity>
               </View>
             </View>
           </View>
