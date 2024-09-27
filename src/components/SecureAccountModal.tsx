@@ -7,7 +7,7 @@ import { colors } from '../themes';
 interface SecureAccountModalProps {
   visible: boolean;
   closeModal: () => void;
-  onImagePick: (source: 'gallery' | 'camera') => void; // Add the new prop type
+  onImagePick: (source: 'gallery' | 'camera') => void;
 }
 
 const SecureAccountModal = ({ visible, closeModal, onImagePick }: SecureAccountModalProps) => {
