@@ -12,6 +12,7 @@ import { colors } from '../../themes';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 import CountryPickerModal from '../../components/CountryPickerModal';
+import GalleryModal from '../../components/SecureAccountModal';
 
 const EditProfileScreen = () => {
     const [modalVisible, setModalVisible] = useState(false);
@@ -206,7 +207,7 @@ const EditProfileScreen = () => {
             />
 
 
-            <SecureAccountModal
+            <GalleryModal
                 visible={modalVisible}
                 closeModal={() => setModalVisible(false)}
                 onImagePick={handleImagePick}

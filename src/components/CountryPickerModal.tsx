@@ -4,8 +4,6 @@ import { View, Text, SafeAreaView, TouchableOpacity, KeyboardAvoidingView, TextI
 import CountryPicker from 'react-native-country-picker-modal';
 import { colors } from '../themes';
 
-
-
 const CountryPickerModal = () => {
     const defaultPhoneNumber = '1234567890';
     const [phone, setPhone] = useState('');

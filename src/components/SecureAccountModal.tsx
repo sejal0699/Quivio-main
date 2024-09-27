@@ -1,16 +1,15 @@
 import React from 'react';
-import { View, Text, Modal, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Modal, StyleSheet, Image, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { Icons, Images } from '../assets';
 import { colors } from '../themes';
 
-
-interface SecureAccountModalProps {
+interface GalleryModalProps {
   visible: boolean;
   closeModal: () => void;
-  onImagePick: (source: 'gallery' | 'camera') => void; // Add the new prop type
+  onImagePick: (source: 'gallery' | 'camera') => void;
 }
 
-const SecureAccountModal = ({ visible, closeModal, onImagePick }: SecureAccountModalProps) => {
+const GalleryModal = ({ visible, closeModal, onImagePick }: GalleryModalProps) => {
   return (
     <Modal
       animationType="slide"
@@ -18,52 +17,44 @@ const SecureAccountModal = ({ visible, closeModal, onImagePick }: SecureAccountM
       visible={visible}
       onRequestClose={closeModal}
     >
-      <View style={styles.modalBackground}>
-        <View style={styles.modalContainer}>
-          {/* Popup Image */}
-          {/* <Image
-            source={Images.popupImage}
-            style={styles.popupImage}
-            resizeMode="contain"
-          /> */}
-          {/* Modal Title */}
-          <Text style={styles.title}>Profile Photo</Text>
-          {/* Modal Description */}
-          {/* <Text style={styles.description}>
-            Setup two-factor authentication to secure your account in just two steps.
-          </Text> */}
-          {/* Options */}
-          <View style={styles.modalView}>
-            <TouchableOpacity onPress={() => onImagePick('gallery')}>
-              <View style={styles.optionContainer}>
-                <Image source={Icons.gallery} style={styles.optionIcon} />
-                <Text style={styles.modalOptionText}>Upload from Gallery</Text>
-                <Image source={Icons.arrow} style={styles.rightIcon} />
-              </View>
-            </TouchableOpacity>
+      <TouchableWithoutFeedback onPress={closeModal}>
+        <View style={styles.modalBackground}>
+          <TouchableWithoutFeedback onPress={() => { }}>
+            <View style={styles.modalContainer}>
+              <Text style={styles.title}>Profile Photo</Text>
+              <View style={styles.modalView}>
+                <TouchableOpacity onPress={() => onImagePick('gallery')}>
+                  <View style={styles.optionContainer}>
+                    <Image source={Icons.gallery} style={styles.optionIcon} />
+                    <Text style={styles.modalOptionText}>Upload from Gallery</Text>
+                    <Image source={Icons.arrow} style={styles.rightIcon} />
+                  </View>
+                </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => onImagePick('camera')}>
-              <View style={styles.optionContainer}>
-                <Image source={Icons.camera} style={styles.optionIcon} />
-                <Text style={styles.modalOptionText}>Use Camera</Text>
-                <Image source={Icons.arrow} style={styles.rightIcon} />
-              </View>
-            </TouchableOpacity>
+                <TouchableOpacity onPress={() => onImagePick('camera')}>
+                  <View style={styles.optionContainer}>
+                    <Image source={Icons.camera} style={styles.optionIcon} />
+                    <Text style={styles.modalOptionText}>Use Camera</Text>
+                    <Image source={Icons.arrow} style={styles.rightIcon} />
+                  </View>
+                </TouchableOpacity>
 
-            <TouchableOpacity>
-              <View style={styles.optionContainer}>
-                <Image source={Icons.avatar} style={styles.optionIcon} />
-                <Text style={styles.modalOptionText}>Select an Avatar</Text>
-                <Image source={Icons.arrow} style={styles.rightIcon} />
-              </View>
-            </TouchableOpacity>
+                <TouchableOpacity>
+                  <View style={styles.optionContainer}>
+                    <Image source={Icons.avatar} style={styles.optionIcon} />
+                    <Text style={styles.modalOptionText}>Select an Avatar</Text>
+                    <Image source={Icons.arrow} style={styles.rightIcon} />
+                  </View>
+                </TouchableOpacity>
 
-            <TouchableOpacity onPress={closeModal}>
-              <Text style={styles.closeModalText}>Cancel</Text>
-            </TouchableOpacity>
-          </View>
+                {/* <TouchableOpacity onPress={closeModal}>
+                  <Text style={styles.closeModalText}>Cancel</Text>
+                </TouchableOpacity> */}
+              </View>
+            </View>
+          </TouchableWithoutFeedback>
         </View>
-      </View>
+      </TouchableWithoutFeedback>
     </Modal>
   );
 };
@@ -93,28 +84,12 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     alignItems: 'center',
   },
-  popupImage: {
-    width: 100,
-    height: 100,
-    marginBottom: 20,
-  },
   title: {
     fontSize: 22,
     fontWeight: 'bold',
     color: '#000',
     marginBottom: 10,
-    alignSelf: 'flex-start'
-  },
-  description: {
-    color: '#777',
-    marginBottom: 20,
-    textAlign: 'center',
-    fontSize: 16,
-  },
-  rightIcon: {
-    width: 6,
-    height: 8,
-    marginLeft: 'auto',
+    alignSelf: 'flex-start',
   },
   modalView: {
     width: '100%',
@@ -123,15 +98,19 @@ const styles = StyleSheet.create({
   modalOptionText: {
     fontSize: 16,
     color: colors.black,
-
     paddingVertical: 10,
     textAlign: 'center',
-    marginLeft: 20
+    marginLeft: 20,
   },
   closeModalText: {
     fontSize: 16,
     color: '#FF3B30',
     marginTop: 10,
+  },
+  rightIcon: {
+    width: 6,
+    height: 8,
+    marginLeft: 'auto',
   },
   optionIcon: {
     width: 24,
@@ -140,4 +119,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SecureAccountModal;
+export default GalleryModal;
