@@ -4,7 +4,7 @@ import { Icons, Images } from '../assets';
 import { colors } from '../themes';
 
 interface Text1 {
-  text1: String
+  text1?: string
 }
 const CustomToast = ({ text1 }: Text1) => {
   return (

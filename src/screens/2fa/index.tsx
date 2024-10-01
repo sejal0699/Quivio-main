@@ -10,7 +10,6 @@ import { Icons, Images } from '../../assets';
 interface NavigationProps {
   navigation: any
 }
-
 const FactorAuth = ({ navigation }: NavigationProps) => {
   const defaultPhoneNumber = '1234567890';
   const [phone, setPhone] = useState('');
@@ -71,7 +70,7 @@ const FactorAuth = ({ navigation }: NavigationProps) => {
                     }}
                     onClose={() => setPickerVisible(false)}
                   />
-
+x
                   <Image
                     source={{ uri: `https://flagcdn.com/w320/${countryCode.toLowerCase()}.png` }}
                     style={styles.flagImage}
@@ -86,11 +85,7 @@ const FactorAuth = ({ navigation }: NavigationProps) => {
                   placeholder="Phone Number"
                   style={styles.inputPhone}
                   keyboardType="phone-pad"
-
                 />
-                <TouchableOpacity>
-                  <Text style={styles.verifyText}>Change</Text>
-                </TouchableOpacity>
               </View>
             </View>
           </View>
@@ -109,6 +104,7 @@ const FactorAuth = ({ navigation }: NavigationProps) => {
             <Text style={styles.buttonText}>Send Code</Text>
           </TouchableOpacity>
         </View>
+
         <Toast config={{ custom_error: ({ text1 }) => <CustomToast text1={text1} /> }} />
       </KeyboardAvoidingView>
     </SafeAreaView>

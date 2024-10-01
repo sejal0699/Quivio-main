@@ -77,10 +77,10 @@ export default StyleSheet.create({
 
     },
     dropdownIcon: {
-        width: 8,
-        height: 8,
+        width: 10,
+        height: 10,
         position: 'absolute',
-        right: 10,
+        right: 20,
         top: 30,
     },
     dropdownList: {
@@ -89,6 +89,7 @@ export default StyleSheet.create({
         elevation: 3,
         width: '100%',
         zIndex: 1,
+        top: 10
 
     },
     modalOptionText: {

@@ -1,14 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, TextInput, Image, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
-import { Icons } from '../assets';
+import { View, TextInput, Image, TouchableOpacity, Text, StyleSheet, Animated, TextStyle } from 'react-native';
 import { colors } from '../themes';
+
 interface CustomTextInputProps {
   value: string;
-  onChangeText: (text: string) => void;
+  onChangeText?: (text: string) => void;
   placeholder?: string;
   iconSource?: any;
-  rightIconSource?: any;  // Image for right icon
-  rightIconText?: string; // Text/emoji for right icon
+  rightIconSource?: any;
+  rightIconText?: string;
   secureTextEntry?: boolean;
   onRightIconPress?: () => void;
   error?: string;
@@ -51,22 +51,24 @@ const CustomTextInput = (props: CustomTextInputProps) => {
   const handleFocus = () => setIsFocused(true);
   const handleBlur = () => setIsFocused(false);
 
-  const labelStyle = {
-    position: 'absolute',
-    left: iconSource ? 36 : 12,
+  const labelStyle: Animated.WithAnimatedObject<TextStyle> = {
+    position: 'absolute' as 'absolute', 
+    left: iconSource ? 36 : 12, 
     top: labelPosition.interpolate({
       inputRange: [0, 1],
-      outputRange: [16, -18], // Move the label up
+      outputRange: [20, -18], 
     }),
     fontSize: labelPosition.interpolate({
       inputRange: [0, 1],
-      outputRange: [16, 12], // Decrease the label size
+      outputRange: [16, 12], 
     }),
     color: labelPosition.interpolate({
       inputRange: [0, 1],
-      outputRange: ['#aaa', '#000'], // Change color when focused
+      outputRange: ['#aaa', '#000'],
     }),
   };
+  
+  
 
   return (
     <View style={styles.inputContainer}>
@@ -143,8 +145,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     padding: 10,
     paddingRight: 40,
-
-
   },
   errorText: {
     color: colors.red,

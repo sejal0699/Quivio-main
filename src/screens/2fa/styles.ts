@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native";
-import { colors } from "../../themes";
 
 
 export default StyleSheet.create({
 
   container: {
-
+    flex: 1,
+    backgroundColor: '#E6EDF3',
   },
   backButton: {
     margin: 16,
@@ -19,12 +19,7 @@ export default StyleSheet.create({
   loginButtonDisabled: {
     backgroundColor: '#B0B0B0',
   },
-  verifyText: {
-    color: colors.pink,
-    fontSize: 16,
-    position: 'absolute',
-    left: 120,
-  },
+
   input: {
     flexDirection: 'row'
   },
@@ -47,10 +42,9 @@ export default StyleSheet.create({
     flexDirection: 'row',
     borderRadius: 10,
     borderWidth: 1,
-    padding: 22,
+    padding: 12,
     backgroundColor: "#ffffff",
-
-    borderColor: '#E7EBF3'
+    borderColor: "#fff"
   },
   backBox: {
     backgroundColor: "#FFFFFF",
@@ -71,7 +65,7 @@ export default StyleSheet.create({
     marginTop: 10
   },
   form: {
-
+    marginTop: 20,
     flexDirection: 'row',
 
   },
@@ -108,10 +102,8 @@ export default StyleSheet.create({
     height: 80,
     backgroundColor: "#ffffff",
     borderRadius: 8,
-    marginTop: 6,
-    padding: 26,
-    borderWidth: 1,
-    borderColor: '#E7EBF3'
+    marginTop: 5,
+    padding: 20
 
   },
   countryPicker: {
@@ -127,11 +119,11 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   flagImage: {
-    width: 40,
-    height: 60,
-    resizeMode: 'center',
-    marginRight: 1,
-
+    width: 30,
+    height: 20,
+    resizeMode: 'cover',
+    marginRight: 10,
+    backgroundColor: "red"
   },
 
 

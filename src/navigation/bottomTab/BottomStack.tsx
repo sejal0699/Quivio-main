@@ -32,7 +32,7 @@ function BottomStack() {
                 name={ScreenNames.Profile}
                 component={Account}
                 options={{
-                    tabBarButton: (props) => {
+                    tabBarIcon: (props) => {
                         const navigation = useNavigation();
                         return (
                             <TouchableOpacity
@@ -41,7 +41,11 @@ function BottomStack() {
                             >
                                 <Image
                                     source={Icons.userIcon}
-                                    style={{ width: 30, height: 30, bottom: 10 }}
+                                    style={{
+                                        width: 25, height: 25
+
+
+                                    }}
                                 />
                             </TouchableOpacity>
                         );

@@ -3,7 +3,6 @@ import { View, Text, TextInput, TouchableOpacity, Image, KeyboardAvoidingView, P
 import Toast from 'react-native-toast-message';
 import CustomToast from '../../components/CustomToast';
 import styles from './styles';
-
 import CustomModal from '../../components/CustomModal';
 import { ScreenNames } from '../../navigation/screenNames';
 import { Icons, Images } from '../../assets';
@@ -197,7 +196,7 @@ const VerificationScreen = ({ navigation }: NavigationProps) => {
       />
 
 
-      <Toast config={{ custom_error: ({ text1 }) => <CustomToast text1={text1} /> }} ref={(ref) => Toast.setRef(ref)} />
+      <Toast config={{ custom_error: ({ text1 }) => <CustomToast text1={text1} /> }} />
     </KeyboardAvoidingView>
   );
 };

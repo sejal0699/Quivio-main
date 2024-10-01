@@ -1,6 +1,8 @@
 import React from 'react';
 import { Modal, View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { colors } from '../themes';
+import { Dimensions } from 'react-native';
+const { width, height } = Dimensions.get('window');
 
 interface CustomModalProps {
     visible: boolean;
